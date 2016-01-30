@@ -25,6 +25,9 @@ repositories {
     mavenCentral()
 }
 
+bootRepackage {
+    executable = true;
+}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-remote-shell')
