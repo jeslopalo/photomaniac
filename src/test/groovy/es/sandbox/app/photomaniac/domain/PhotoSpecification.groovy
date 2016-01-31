@@ -16,7 +16,7 @@ class PhotoSpecification extends Specification {
         new Photo(null)
 
         then:
-        def exception= thrown(NullPointerException);
+        NullPointerException exception= thrown();
         exception.message == "Location path may not be null"
     }
 
