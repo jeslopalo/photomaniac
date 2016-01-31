@@ -9,18 +9,18 @@ import java.nio.file.Paths
  */
 class PhotoSpecification extends Specification {
 
+    def location= Paths.get("samples", "DSC_005.NEF");
+
     def "it should provoke an exception when location path is null"() {
         when:
         new Photo(null)
 
         then:
-        thrown(NullPointerException);
+        def exception= thrown(NullPointerException);
+        exception.message == "Location path may not be null"
     }
 
     def "it should has a location path"() {
-        setup:
-        def location = Paths.get("samples", "DSC_005.NEF");
-
         when:
         def photo = new Photo(location);
 
@@ -29,15 +29,10 @@ class PhotoSpecification extends Specification {
     }
 
     def "it should has an extension"() {
-        setup:
-        def location = Paths.get("samples", "DSC_005.NEF");
-
         when:
         def photo= new Photo(location);
 
         then:
         photo.getExtension() == PhotoExtension.NEF;
     }
-
-
 }

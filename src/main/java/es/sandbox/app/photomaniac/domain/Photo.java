@@ -16,7 +16,7 @@ public class Photo {
     private final PhotoExtension extension;
 
     public Photo(Path path) {
-        requireNonNull(path);
+        requireNonNull(path, "Location path may not be null");
 
         this.path = path;
         this.extension= PhotoExtension.NEF;
